@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KKM People's Clinic - Quality Healthcare Services</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-red: #c62828;
+            --primary-blue: #1565c0;
+            --light-blue: #e3f2fd;
+            --light-red: #ffebee;
+            --dark-gray: #333;
+            --light-gray: #f5f5f5;
+            --medium-gray: #757575;
+            --white: #ffffff;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: var(--dark-gray);
+            background-color: var(--white);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo-placeholder {
+            width: 280px;
+            height: 80px;
+            background-color: var(--light-gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 5px;
+            border: 1px dashed var(--medium-gray);
+            color: var(--medium-gray);
+            font-size: 14px;
+        }
+        
+        .logo-placeholder img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 25px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark-gray);
+            font-weight: 600;
+            font-size: 16px;
+            transition: color 0.3s;
+            padding: 5px 0;
+            position: relative;
+        }
+        
+        nav ul li a:hover {
+            color: var(--primary-blue);
+        }
+        
+        nav ul li a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--primary-red);
+            left: 0;
+            bottom: 0;
+            transition: width 0.3s;
+        }
+        
+        nav ul li a:hover:after {
+            width: 100%;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: var(--primary-blue);
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(21, 101, 192, 0.85), rgba(198, 40, 40, 0.85)), url('https://images.unsplash.com/photo-1516549655669-dfbf10d0c9b7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 3.2rem;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: var(--primary-red);
+            color: var(--white);
+            padding: 14px 32px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 18px;
+            transition: all 0.3s;
+            border: 2px solid var(--primary-red);
+        }
+        
+        .cta-button:hover {
+            background-color: transparent;
+            color: var(--white);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Services Section */
+        .section-title {
+            text-align: center;
+            margin: 60px 0 40px;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary-blue);
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+        
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background-color: var(--primary-red);
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .services-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        
+        .service-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-top: 4px solid var(--primary-blue);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .service-icon {
+            background-color: var(--light-blue);
+            color: var(--primary-blue);
+            font-size: 2.5rem;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .service-content {
+            padding: 25px;
+        }
+        
+        .service-content h3 {
+            color: var(--primary-blue);
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+        
+        .service-content p {
+            color: var(--medium-gray);
+        }
+        
+        /* Contact Section */
+        .contact-section {
+            background-color: var(--light-gray);
+            padding: 60px 0;
+        }
+        
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+        
+        .contact-info h3 {
+            color: var(--primary-blue);
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+        
+        .contact-detail {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+        
+        .contact-detail i {
+            color: var(--primary-red);
+            font-size: 1.2rem;
+            margin-right: 15px;
+            margin-top: 5px;
+        }
+        
+        .contact-form input,
+        .contact-form select,
+        .contact-form textarea {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        
+        .contact-form button {
+            background-color: var(--primary-blue);
+            color: var(--white);
+            border: none;
+            padding: 15px 30px;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .contact-form button:hover {
+            background-color: var(--primary-red);
+        }
+        
+        /* Success Message Styles */
+        .form-success {
+            display: none;
+            background-color: #d4edda;
+            color: #155724;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            border: 1px solid #c3e6cb;
+        }
+        
+        .form-error {
+            display: none;
+            background-color: #f8d7da;
+            color: #721c24;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            border: 1px solid #f5c6cb;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark-gray);
+            color: var(--white);
+            padding: 60px 0 30px;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            color: var(--white);
+            margin-bottom: 25px;
+            font-size: 1.4rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3:after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 3px;
+            background-color: var(--primary-red);
+            bottom: 0;
+            left: 0;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-column ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-column ul li a:hover {
+            color: var(--primary-red);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #444;
+            color: #aaa;
+            font-size: 14px;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .services-container {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--white);
+                flex-direction: column;
+                padding: 20px 0;
+                box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+            }
+            
+            nav ul.active {
+                display: flex;
+            }
+            
+            nav ul li {
+                margin: 0;
+                text-align: center;
+            }
+            
+            nav ul li a {
+                display: block;
+                padding: 15px;
+            }
+            
+            .hero h1 {
+                font-size: 2.4rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero {
+                padding: 80px 0;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .service-card {
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+    <link rel="icon" href="KKM.jpg" type="image/jpeg">
+</head>
+<body>
+    <!-- Header Section with Logo Placeholder -->
+    <header>
+        <div class="container header-container">
+            <div class="logo-placeholder">
+                <!-- Your logo will appear here when KKM.jpg is added -->
+                <span>KKM PLEOPLE'S CLINIC</span>
+            </div>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav>
+                <ul id="mainMenu">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>KKM People's Clinic</h1>
+            <p>Providing comprehensive, compassionate healthcare services for individuals and families. Our experienced medical professionals are dedicated to your well-being with state-of-the-art facilities and personalized care.</p>
+            <a href="#contact" class="cta-button">Book an Appointment</a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Medical Services</h2>
+            </div>
+            
+            <div class="services-container">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-user-md"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>General Medicine</h3>
+                        <p>Comprehensive medical care for adults including diagnosis, treatment, and management of common illnesses and chronic conditions.</p>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-microscope"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Laboratory Services</h3>
+                        <p>Full range of diagnostic tests including blood work, urinalysis, cultures, and pathology services with accurate, timely results.</p>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-syringe"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Minor Surgery</h3>
+                        <p>Outpatient surgical procedures performed with precision and care, including wound repairs, cyst removals, and biopsies.</p>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-baby"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Antenatal / Maternity Care</h3>
+                        <p>Complete prenatal, delivery, and postnatal care ensuring the health of both mother and baby throughout pregnancy.</p>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-tooth"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Dental Care</h3>
+                        <p>Comprehensive dental services including examinations, cleanings, fillings, extractions, and oral health education.</p>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-virus"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>HIV / AIDS Testing & Counselling</h3>
+                        <p>Confidential testing, counseling, and support services with compassionate care and complete privacy protection.</p>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-child"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Paediatrics</h3>
+                        <p>Specialized medical care for infants, children, and adolescents including immunizations, growth monitoring, and illness treatment.</p>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-procedures"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Ultrasound Scan</h3>
+                        <p>Advanced diagnostic imaging for pregnancy monitoring, abdominal examinations, and other medical assessments.</p>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Pressure Check-up</h3>
+                        <p>Regular blood pressure monitoring, hypertension management, and cardiovascular health assessments.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" style="background-color: var(--light-blue); padding: 60px 0;">
+        <div class="container">
+            <div class="section-title">
+                <h2>About KKM People's Clinic</h2>
+            </div>
+            
+            <div style="max-width: 900px; margin: 0 auto;">
+                <div style="display: flex; flex-wrap: wrap; align-items: center; margin-bottom: 40px;">
+                    <div style="flex: 1; min-width: 300px; padding: 20px;">
+                        <h3 style="color: var(--primary-blue); margin-bottom: 20px; font-size: 1.8rem;">Our Mission</h3>
+                        <p style="font-size: 1.1rem; line-height: 1.8;">At KKM People's Clinic, we are committed to providing accessible, high-quality healthcare to individuals and families in our community. Our patient-centered approach ensures personalized care tailored to each individual's unique health needs.</p>
+                    </div>
+                    <div style="flex: 1; min-width: 300px; padding: 20px;">
+                        <h3 style="color: var(--primary-blue); margin-bottom: 20px; font-size: 1.8rem;">Our Values</h3>
+                        <ul style="list-style-type: none;">
+                            <li style="margin-bottom: 12px; padding-left: 25px; position: relative;"><i class="fas fa-check" style="color: var(--primary-red); position: absolute; left: 0;"></i> Compassionate Care</li>
+                            <li style="margin-bottom: 12px; padding-left: 25px; position: relative;"><i class="fas fa-check" style="color: var(--primary-red); position: absolute; left: 0;"></i> Medical Excellence</li>
+                            <li style="margin-bottom: 12px; padding-left: 25px; position: relative;"><i class="fas fa-check" style="color: var(--primary-red); position: absolute; left: 0;"></i> Patient Privacy</li>
+                            <li style="margin-bottom: 12px; padding-left: 25px; position: relative;"><i class="fas fa-check" style="color: var(--primary-red); position: absolute; left: 0;"></i> Community Focus</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div style="background-color: var(--white); padding: 30px; border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
+                    <h3 style="color: var(--primary-blue); margin-bottom: 20px; font-size: 1.8rem;">Our Medical Team</h3>
+                    <p style="margin-bottom: 20px;">Our clinic is staffed by experienced, board-certified physicians, nurses, and healthcare professionals dedicated to providing the highest standard of medical care. We continuously update our knowledge and skills through ongoing medical education.</p>
+                    <p>We utilize modern medical equipment and follow evidence-based practices to ensure accurate diagnoses and effective treatments for all our patients.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section with Netlify Form -->
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Us</h2>
+            </div>
+            
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Get In Touch</h3>
+                    <p style="margin-bottom: 25px;">We're here to answer your questions and provide the care you need. Contact us by phone, email, or visit our clinic during business hours.</p>
+                    
+                    <div class="contact-detail">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4 style="color: var(--primary-blue); margin-bottom: 5px;">Email Address</h4>
+                            <p>mikeprougfuturedoctor@gmail.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-detail">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4 style="color: var(--primary-blue); margin-bottom: 5px;">Phone Numbers</h4>
+                            <p>0756 864 577</p>
+                            <p>0785 876 685</p>
+                            <p>0770 381 121</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-detail">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h4 style="color: var(--primary-blue); margin-bottom: 5px;">Clinic Hours</h4>
+                            <p>Monday - Friday: 8:00 AM - 8:00 PM</p>
+                            <p>Saturday: 9:00 AM - 5:00 PM</p>
+                            <p>Sunday: 10:00 AM - 4:00 PM</p>
+                            <p>Emergency services available 24/7</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-detail">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4 style="color: var(--primary-blue); margin-bottom: 5px;">Location</h4>
+                            <p>KKM People's Clinic, Main Street, Community Health District</p>
+                            <p>Easy access with ample parking available</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Netlify Form Section -->
+                <div class="contact-form">
+                    <h3 style="color: var(--primary-blue); margin-bottom: 20px; font-size: 1.8rem;">Book an Appointment</h3>
+                    
+                    <!-- Success/Error Messages -->
+                    <div class="form-success" id="formSuccess">
+                        <i class="fas fa-check-circle"></i> Thank you! Your appointment request has been sent. We will contact you within 24 hours.
+                    </div>
+                    
+                    <div class="form-error" id="formError">
+                        <i class="fas fa-exclamation-circle"></i> Sorry, there was an error. Please try again or call us directly.
+                    </div>
+                    
+                    <!-- Netlify Form -->
+                    <form name="appointment" method="POST" data-netlify="true" action="/success" netlify-honeypot="bot-field" id="appointmentForm">
+                        <!-- Hidden Netlify Fields -->
+                        <input type="hidden" name="form-name" value="appointment">
+                        <input type="text" name="bot-field" style="display:none">
+                        
+                        <!-- Form Fields -->
+                        <input type="text" name="name" placeholder="Your Full Name" required>
+                        <input type="tel" name="phone" placeholder="Phone Number" required>
+                        <input type="email" name="email" placeholder="Email Address" required>
+                        
+                        <select name="service" required>
+                            <option value="" disabled selected>Select Service</option>
+                            <option value="General Medicine">General Medicine</option>
+                            <option value="Laboratory Services">Laboratory Services</option>
+                            <option value="Minor Surgery">Minor Surgery</option>
+                            <option value="Antenatal/Maternity Care">Antenatal/Maternity Care</option>
+                            <option value="Dental Care">Dental Care</option>
+                            <option value="HIV/AIDS Testing & Counselling">HIV/AIDS Testing & Counselling</option>
+                            <option value="Paediatrics">Paediatrics</option>
+                            <option value="Ultrasound Scan">Ultrasound Scan</option>
+                            <option value="Pressure Check-up">Pressure Check-up</option>
+                        </select>
+                        
+                        <input type="date" name="preferred-date">
+                        
+                        <select name="preferred-time">
+                            <option value="" disabled selected>Preferred Time</option>
+                            <option value="Morning (8 AM - 12 PM)">Morning (8 AM - 12 PM)</option>
+                            <option value="Afternoon (12 PM - 4 PM)">Afternoon (12 PM - 4 PM)</option>
+                            <option value="Evening (4 PM - 8 PM)">Evening (4 PM - 8 PM)</option>
+                        </select>
+                        
+                        <textarea name="message" placeholder="Additional Information or Questions" rows="5"></textarea>
+                        
+                        <button type="submit">Submit Appointment Request</button>
+                        
+                        <p style="font-size: 14px; color: var(--medium-gray); margin-top: 15px;">
+                            <i class="fas fa-lock" style="margin-right: 5px;"></i>
+                            Your information is secure and confidential
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-column">
+                    <h3>KKM People's Clinic</h3>
+                    <p>Your health is our priority. We provide comprehensive medical services with compassion, expertise, and state-of-the-art facilities.</p>
+                    <div style="margin-top: 20px;">
+                        <a href="#" style="color: #ccc; margin-right: 15px; font-size: 1.2rem;"><i class="fab fa-facebook"></i></a>
+                        <a href="#" style="color: #ccc; margin-right: 15px; font-size: 1.2rem;"><i class="fab fa-twitter"></i></a>
+                        <a href="#" style="color: #ccc; margin-right: 15px; font-size: 1.2rem;"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="#contact">Book Appointment</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Our Services</h3>
+                    <ul>
+                        <li><a href="#services">General Medicine</a></li>
+                        <li><a href="#services">Laboratory Services</a></li>
+                        <li><a href="#services">Minor Surgery</a></li>
+                        <li><a href="#services">Antenatal Care</a></li>
+                        <li><a href="#services">Dental Care</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Emergency Contacts</h3>
+                    <ul>
+                        <li><i class="fas fa-phone" style="margin-right: 8px;"></i> 0756 864 577</li>
+                        <li><i class="fas fa-phone" style="margin-right: 8px;"></i> 0785 876 685</li>
+                        <li><i class="fas fa-phone" style="margin-right: 8px;"></i> 0770 381 121</li>
+                        <li><i class="fas fa-ambulance" style="margin-right: 8px;"></i> Emergency: 911</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 KKM People's Clinic. All Rights Reserved. | Providing Quality Healthcare to Our Community</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+            document.getElementById('mainMenu').classList.toggle('active');
+            this.innerHTML = document.getElementById('mainMenu').classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Handle form submission
+        document.getElementById('appointmentForm').addEventListener('submit', function(e) {
+            // Optional: Show loading state
+            const submitBtn = this.querySelector('button[type="submit"]');
+            const originalText = submitBtn.textContent;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+            submitBtn.disabled = true;
+            
+            // The form will submit to Netlify
+            // Netlify will handle the submission and redirect to /success
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    document.getElementById('mainMenu').classList.remove('active');
+                    document.getElementById('mobileMenuBtn').innerHTML = '<i class="fas fa-bars"></i>';
+                }
+            });
+        });
+        
+        // Check if we're on a success page
+        if(window.location.pathname === '/success' || window.location.search.includes('success')) {
+            // Show success message
+            document.getElementById('formSuccess').style.display = 'block';
+            
+            // Remove success parameter from URL
+            if(window.history.replaceState) {
+                window.history.replaceState({}, document.title, window.location.pathname);
+            }
+        }
+    </script>
+</body>
+</html>
