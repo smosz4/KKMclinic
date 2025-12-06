@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KKM People's Clinic - Quality Healthcare Services</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
         :root {
             --primary-red: #c62828;
@@ -50,7 +51,12 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 0;
+            padding: 10px 0;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
         }
         
         .logo-placeholder {
@@ -61,14 +67,21 @@
             align-items: center;
             justify-content: center;
             border-radius: 5px;
-            border: 1px dashed var(--medium-gray);
-            color: var(--medium-gray);
-            font-size: 14px;
+            overflow: hidden;
         }
         
         .logo-placeholder img {
             max-width: 100%;
             max-height: 100%;
+            object-fit: contain;
+        }
+        
+        .clinic-name {
+            margin-left: 15px;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            display: none;
         }
         
         nav ul {
@@ -118,6 +131,30 @@
             cursor: pointer;
         }
         
+        /* Emergency Banner */
+        .emergency-banner {
+            background: linear-gradient(90deg, var(--primary-red), #e53935);
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+            font-weight: 600;
+        }
+        
+        .emergency-banner a {
+            color: white;
+            text-decoration: none;
+            margin-left: 10px;
+            background: rgba(255,255,255,0.2);
+            padding: 5px 15px;
+            border-radius: 20px;
+            transition: all 0.3s;
+        }
+        
+        .emergency-banner a:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-2px);
+        }
+        
         /* Hero Section */
         .hero {
             background: linear-gradient(rgba(21, 101, 192, 0.85), rgba(198, 40, 40, 0.85)), url('https://images.unsplash.com/photo-1516549655669-dfbf10d0c9b7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
@@ -140,6 +177,13 @@
             margin: 0 auto 30px;
         }
         
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
         .cta-button {
             display: inline-block;
             background-color: var(--primary-red);
@@ -158,6 +202,53 @@
             color: var(--white);
             transform: translateY(-3px);
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .cta-button.secondary {
+            background-color: transparent;
+            border-color: var(--white);
+        }
+        
+        .cta-button.secondary:hover {
+            background-color: var(--white);
+            color: var(--primary-blue);
+        }
+        
+        /* Quick Info Cards */
+        .quick-info {
+            padding: 60px 0;
+            background: var(--light-gray);
+        }
+        
+        .info-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .info-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+            border-top: 4px solid var(--primary-blue);
+        }
+        
+        .info-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .info-card i {
+            font-size: 2.5rem;
+            color: var(--primary-blue);
+            margin-bottom: 20px;
+        }
+        
+        .info-card h3 {
+            color: var(--primary-blue);
+            margin-bottom: 15px;
         }
         
         /* Services Section */
@@ -230,9 +321,95 @@
             color: var(--medium-gray);
         }
         
+        /* Doctors Section */
+        .doctors-section {
+            background: var(--light-blue);
+            padding: 60px 0;
+        }
+        
+        .doctors-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        
+        .doctor-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s;
+        }
+        
+        .doctor-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .doctor-img {
+            height: 250px;
+            background: var(--light-gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--medium-gray);
+        }
+        
+        .doctor-info {
+            padding: 25px;
+            text-align: center;
+        }
+        
+        .doctor-info h3 {
+            color: var(--primary-blue);
+            margin-bottom: 10px;
+        }
+        
+        .doctor-info p {
+            color: var(--primary-red);
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            padding: 60px 0;
+            background: var(--light-gray);
+        }
+        
+        .testimonial-slider {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .testimonial {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            text-align: center;
+            margin: 20px;
+        }
+        
+        .testimonial i {
+            color: #FFD700;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .testimonial p {
+            font-style: italic;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+        
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--primary-blue);
+        }
+        
         /* Contact Section */
         .contact-section {
-            background-color: var(--light-gray);
+            background-color: var(--white);
             padding: 60px 0;
         }
         
@@ -286,6 +463,107 @@
         
         .contact-form button:hover {
             background-color: var(--primary-red);
+        }
+        
+        /* Map Section - UPDATED */
+        .map-section {
+            padding: 60px 0;
+            background: var(--light-gray);
+        }
+        
+        .map-container {
+            width: 100%;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        
+        .map-container iframe {
+            display: block;
+            border: none;
+            width: 100%;
+            height: 450px;
+        }
+        
+        .location-details {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .location-info {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .location-info h3 {
+            color: var(--primary-blue);
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+        
+        .location-info p {
+            margin-bottom: 10px;
+            color: var(--medium-gray);
+        }
+        
+        /* Opening Hours */
+        .hours-section {
+            padding: 60px 0;
+            background: white;
+        }
+        
+        .hours-table {
+            max-width: 600px;
+            margin: 0 auto;
+            background: var(--light-gray);
+            padding: 30px;
+            border-radius: 10px;
+        }
+        
+        .hours-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 0;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .hours-row:last-child {
+            border-bottom: none;
+        }
+        
+        .hours-day {
+            font-weight: 600;
+            color: var(--primary-blue);
+        }
+        
+        .hours-time {
+            color: var(--dark-gray);
+            font-weight: 500;
+        }
+        
+        /* Emergency Box */
+        .emergency-box {
+            background: linear-gradient(135deg, var(--primary-red), #d32f2f);
+            color: white;
+            padding: 40px;
+            border-radius: 10px;
+            text-align: center;
+            margin-top: 40px;
+            box-shadow: 0 10px 30px rgba(198, 40, 40, 0.3);
+        }
+        
+        .emergency-box h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+        
+        .emergency-box .phone {
+            font-size: 2rem;
+            font-weight: 700;
+            margin: 20px 0;
         }
         
         /* Success Message Styles */
@@ -359,6 +637,30 @@
             color: var(--primary-red);
         }
         
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .social-icons a:hover {
+            background: var(--primary-red);
+            transform: translateY(-3px);
+        }
+        
         .copyright {
             text-align: center;
             padding-top: 30px;
@@ -375,6 +677,11 @@
             
             .services-container {
                 grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            }
+            
+            .clinic-name {
+                display: block;
+                font-size: 1.5rem;
             }
         }
         
@@ -416,6 +723,26 @@
             .hero p {
                 font-size: 1.1rem;
             }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .cta-button {
+                width: 100%;
+                max-width: 300px;
+                text-align: center;
+            }
+            
+            .logo-placeholder {
+                width: 200px;
+                height: 60px;
+            }
+            
+            .map-container iframe {
+                height: 350px;
+            }
         }
         
         @media (max-width: 576px) {
@@ -434,17 +761,38 @@
             .service-card {
                 margin-bottom: 20px;
             }
+            
+            .emergency-box .phone {
+                font-size: 1.5rem;
+            }
+            
+            .map-container iframe {
+                height: 300px;
+            }
         }
     </style>
-    <link rel="icon" href="KKM.jpg" type="image/jpeg">
+    <link rel="icon" href="KKM.png" type="image/png">
 </head>
 <body>
-    <!-- Header Section with Logo Placeholder -->
+    <!-- Emergency Banner -->
+    <div class="emergency-banner">
+        <div class="container">
+            <i class="fas fa-phone-alt"></i> Emergency Line: 
+            <a href="tel:0756864577">0756 864 577</a> | 
+            <a href="tel:0785876685">0785 876 685</a> |
+            <a href="tel:0770381121">0770 381 121</a>
+        </div>
+    </div>
+
+    <!-- Header Section with Logo -->
     <header>
         <div class="container header-container">
-            <div class="logo-placeholder">
-                <!-- Your logo will appear here when KKM.jpg is added -->
-                <span>KKM PLEOPLE'S CLINIC</span>
+            <div class="logo-container">
+                <div class="logo-placeholder">
+                    <!-- Your logo will appear here when KKM.png is added -->
+                    <img src="KKM.png" alt="KKM People's Clinic Logo" onerror="this.style.display='none'; this.parentElement.innerHTML='<span>Logo: KKM.png (280x80)</span>';">
+                </div>
+                <div class="clinic-name">KKM People's Clinic</div>
             </div>
             
             <button class="mobile-menu-btn" id="mobileMenuBtn">
@@ -453,10 +801,11 @@
             
             <nav>
                 <ul id="mainMenu">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#about">About Us</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#home"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="#services"><i class="fas fa-stethoscope"></i> Services</a></li>
+                    <li><a href="#doctors"><i class="fas fa-user-md"></i> Doctors</a></li>
+                    <li><a href="#hours"><i class="fas fa-clock"></i> Hours</a></li>
+                    <li><a href="#contact"><i class="fas fa-phone"></i> Contact</a></li>
                 </ul>
             </nav>
         </div>
@@ -465,9 +814,44 @@
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="container">
-            <h1>KKM People's Clinic</h1>
-            <p>Providing comprehensive, compassionate healthcare services for individuals and families. Our experienced medical professionals are dedicated to your well-being with state-of-the-art facilities and personalized care.</p>
-            <a href="#contact" class="cta-button">Book an Appointment</a>
+            <h1>Quality Healthcare for Everyone</h1>
+            <p>At KKM People's Clinic, we provide comprehensive medical services with compassion and expertise. Your health is our priority, with state-of-the-art facilities and personalized care.</p>
+            <div class="hero-buttons">
+                <a href="#contact" class="cta-button">
+                    <i class="fas fa-calendar-check"></i> Book Appointment
+                </a>
+                <a href="tel:0756864577" class="cta-button secondary">
+                    <i class="fas fa-phone"></i> Call Now
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Info Section -->
+    <section class="quick-info">
+        <div class="container">
+            <div class="info-cards">
+                <div class="info-card">
+                    <i class="fas fa-clock"></i>
+                    <h3>24/7 Emergency</h3>
+                    <p>Emergency services available round the clock with immediate care</p>
+                </div>
+                <div class="info-card">
+                    <i class="fas fa-user-md"></i>
+                    <h3>Expert Doctors</h3>
+                    <p>Experienced medical professionals with specialized expertise</p>
+                </div>
+                <div class="info-card">
+                    <i class="fas fa-hospital"></i>
+                    <h3>Modern Equipment</h3>
+                    <p>State-of-the-art medical technology for accurate diagnoses</p>
+                </div>
+                <div class="info-card">
+                    <i class="fas fa-hand-holding-heart"></i>
+                    <h3>Patient Care</h3>
+                    <p>Compassionate care focused on your health and well-being</p>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -476,6 +860,7 @@
         <div class="container">
             <div class="section-title">
                 <h2>Our Medical Services</h2>
+                <p style="color: var(--medium-gray); margin-top: 15px;">Comprehensive healthcare services for all your medical needs</p>
             </div>
             
             <div class="services-container">
@@ -485,7 +870,8 @@
                     </div>
                     <div class="service-content">
                         <h3>General Medicine</h3>
-                        <p>Comprehensive medical care for adults including diagnosis, treatment, and management of common illnesses and chronic conditions.</p>
+                        <p>Diagnosis, treatment, and management of common illnesses, chronic conditions, and preventive healthcare for adults.</p>
+                        <a href="#contact" style="color: var(--primary-red); font-weight: 600; display: inline-block; margin-top: 10px;">Book Now →</a>
                     </div>
                 </div>
                 
@@ -495,7 +881,8 @@
                     </div>
                     <div class="service-content">
                         <h3>Laboratory Services</h3>
-                        <p>Full range of diagnostic tests including blood work, urinalysis, cultures, and pathology services with accurate, timely results.</p>
+                        <p>Complete diagnostic testing including blood work, urinalysis, cultures, pathology, and rapid test results.</p>
+                        <a href="#contact" style="color: var(--primary-red); font-weight: 600; display: inline-block; margin-top: 10px;">Book Now →</a>
                     </div>
                 </div>
                 
@@ -505,7 +892,8 @@
                     </div>
                     <div class="service-content">
                         <h3>Minor Surgery</h3>
-                        <p>Outpatient surgical procedures performed with precision and care, including wound repairs, cyst removals, and biopsies.</p>
+                        <p>Outpatient surgical procedures: wound repairs, cyst removals, biopsies, and other minor operations.</p>
+                        <a href="#contact" style="color: var(--primary-red); font-weight: 600; display: inline-block; margin-top: 10px;">Book Now →</a>
                     </div>
                 </div>
                 
@@ -514,8 +902,9 @@
                         <i class="fas fa-baby"></i>
                     </div>
                     <div class="service-content">
-                        <h3>Antenatal / Maternity Care</h3>
-                        <p>Complete prenatal, delivery, and postnatal care ensuring the health of both mother and baby throughout pregnancy.</p>
+                        <h3>Maternity Care</h3>
+                        <p>Complete prenatal care, delivery services, postnatal care, and newborn care for mother and baby.</p>
+                        <a href="#contact" style="color: var(--primary-red); font-weight: 600; display: inline-block; margin-top: 10px;">Book Now →</a>
                     </div>
                 </div>
                 
@@ -525,7 +914,8 @@
                     </div>
                     <div class="service-content">
                         <h3>Dental Care</h3>
-                        <p>Comprehensive dental services including examinations, cleanings, fillings, extractions, and oral health education.</p>
+                        <p>Comprehensive dental services: examinations, cleanings, fillings, extractions, and oral surgery.</p>
+                        <a href="#contact" style="color: var(--primary-red); font-weight: 600; display: inline-block; margin-top: 10px;">Book Now →</a>
                     </div>
                 </div>
                 
@@ -534,8 +924,9 @@
                         <i class="fas fa-virus"></i>
                     </div>
                     <div class="service-content">
-                        <h3>HIV / AIDS Testing & Counselling</h3>
-                        <p>Confidential testing, counseling, and support services with compassionate care and complete privacy protection.</p>
+                        <h3>HIV/AIDS Services</h3>
+                        <p>Confidential testing, counseling, treatment, and support services with complete privacy protection.</p>
+                        <a href="#contact" style="color: var(--primary-red); font-weight: 600; display: inline-block; margin-top: 10px;">Book Now →</a>
                     </div>
                 </div>
                 
@@ -545,7 +936,8 @@
                     </div>
                     <div class="service-content">
                         <h3>Paediatrics</h3>
-                        <p>Specialized medical care for infants, children, and adolescents including immunizations, growth monitoring, and illness treatment.</p>
+                        <p>Specialized care for children: immunizations, growth monitoring, illness treatment, and child wellness.</p>
+                        <a href="#contact" style="color: var(--primary-red); font-weight: 600; display: inline-block; margin-top: 10px;">Book Now →</a>
                     </div>
                 </div>
                 
@@ -555,7 +947,8 @@
                     </div>
                     <div class="service-content">
                         <h3>Ultrasound Scan</h3>
-                        <p>Advanced diagnostic imaging for pregnancy monitoring, abdominal examinations, and other medical assessments.</p>
+                        <p>Advanced diagnostic imaging for pregnancy, abdominal examinations, and other medical assessments.</p>
+                        <a href="#contact" style="color: var(--primary-red); font-weight: 600; display: inline-block; margin-top: 10px;">Book Now →</a>
                     </div>
                 </div>
                 
@@ -564,64 +957,145 @@
                         <i class="fas fa-heartbeat"></i>
                     </div>
                     <div class="service-content">
-                        <h3>Pressure Check-up</h3>
-                        <p>Regular blood pressure monitoring, hypertension management, and cardiovascular health assessments.</p>
+                        <h3>Cardiac Care</h3>
+                        <p>Blood pressure monitoring, hypertension management, ECG, and cardiovascular health assessments.</p>
+                        <a href="#contact" style="color: var(--primary-red); font-weight: 600; display: inline-block; margin-top: 10px;">Book Now →</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" style="background-color: var(--light-blue); padding: 60px 0;">
+    <!-- Doctors Section -->
+    <section class="doctors-section" id="doctors">
         <div class="container">
             <div class="section-title">
-                <h2>About KKM People's Clinic</h2>
+                <h2>Our Medical Team</h2>
+                <p style="color: var(--medium-gray); margin-top: 15px;">Experienced healthcare professionals dedicated to your well-being</p>
             </div>
             
-            <div style="max-width: 900px; margin: 0 auto;">
-                <div style="display: flex; flex-wrap: wrap; align-items: center; margin-bottom: 40px;">
-                    <div style="flex: 1; min-width: 300px; padding: 20px;">
-                        <h3 style="color: var(--primary-blue); margin-bottom: 20px; font-size: 1.8rem;">Our Mission</h3>
-                        <p style="font-size: 1.1rem; line-height: 1.8;">At KKM People's Clinic, we are committed to providing accessible, high-quality healthcare to individuals and families in our community. Our patient-centered approach ensures personalized care tailored to each individual's unique health needs.</p>
+            <div class="doctors-container">
+                <div class="doctor-card">
+                    <div class="doctor-img">
+                        <i class="fas fa-user-md" style="font-size: 4rem; color: var(--primary-blue);"></i>
                     </div>
-                    <div style="flex: 1; min-width: 300px; padding: 20px;">
-                        <h3 style="color: var(--primary-blue); margin-bottom: 20px; font-size: 1.8rem;">Our Values</h3>
-                        <ul style="list-style-type: none;">
-                            <li style="margin-bottom: 12px; padding-left: 25px; position: relative;"><i class="fas fa-check" style="color: var(--primary-red); position: absolute; left: 0;"></i> Compassionate Care</li>
-                            <li style="margin-bottom: 12px; padding-left: 25px; position: relative;"><i class="fas fa-check" style="color: var(--primary-red); position: absolute; left: 0;"></i> Medical Excellence</li>
-                            <li style="margin-bottom: 12px; padding-left: 25px; position: relative;"><i class="fas fa-check" style="color: var(--primary-red); position: absolute; left: 0;"></i> Patient Privacy</li>
-                            <li style="margin-bottom: 12px; padding-left: 25px; position: relative;"><i class="fas fa-check" style="color: var(--primary-red); position: absolute; left: 0;"></i> Community Focus</li>
-                        </ul>
+                    <div class="doctor-info">
+                        <h3>Dr. Michael P. Oug</h3>
+                        <p>Chief Medical Officer</p>
+                        <p>MBBS, MD (General Medicine)</p>
+                        <p>4+ years experience</p>
                     </div>
                 </div>
                 
-                <div style="background-color: var(--white); padding: 30px; border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
-                    <h3 style="color: var(--primary-blue); margin-bottom: 20px; font-size: 1.8rem;">Our Medical Team</h3>
-                    <p style="margin-bottom: 20px;">Our clinic is staffed by experienced, board-certified physicians, nurses, and healthcare professionals dedicated to providing the highest standard of medical care. We continuously update our knowledge and skills through ongoing medical education.</p>
-                    <p>We utilize modern medical equipment and follow evidence-based practices to ensure accurate diagnoses and effective treatments for all our patients.</p>
+                <div class="doctor-card">
+                    <div class="doctor-img">
+                        <i class="fas fa-female" style="font-size: 4rem; color: var(--primary-blue);"></i>
+                    </div>
+                    <div class="doctor-info">
+                        <h3>Dr. Sarah Johnson</h3>
+                        <p>Senior Paediatrician</p>
+                        <p>MBBS, DCH, MD (Paediatrics)</p>
+                        <p>2+ years experience</p>
+                    </div>
+                </div>
+                
+                <div class="doctor-card">
+                    <div class="doctor-img">
+                        <i class="fas fa-user-md" style="font-size: 4rem; color: var(--primary-blue);"></i>
+                    </div>
+                    <div class="doctor-info">
+                        <h3>Dr. Robert Chen</h3>
+                        <p>Dental Surgeon</p>
+                        <p>BDS, MDS (Oral Surgery)</p>
+                        <p>3+ years experience</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section with Netlify Form -->
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>Patient Testimonials</h2>
+                <p style="color: var(--medium-gray); margin-top: 15px;">What our patients say about our services</p>
+            </div>
+            
+            <div class="testimonial-slider">
+                <div class="testimonial">
+                    <i class="fas fa-quote-left"></i>
+                    <p>"The care I received at KKM Clinic was exceptional. Dr. Michael and his team were compassionate, professional, and thorough. I highly recommend this clinic to anyone seeking quality healthcare."</p>
+                    <div class="testimonial-author">- John M., Patient</div>
+                    <div style="color: #FFD700; margin-top: 10px;">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Opening Hours -->
+    <section class="hours-section" id="hours">
+        <div class="container">
+            <div class="section-title">
+                <h2>Clinic Hours</h2>
+                <p style="color: var(--medium-gray); margin-top: 15px;">We're here when you need us</p>
+            </div>
+            
+            <div class="hours-table">
+                <div class="hours-row">
+                    <div class="hours-day">Monday - Friday</div>
+                    <div class="hours-time">8:00 AM - 8:00 PM</div>
+                </div>
+                <div class="hours-row">
+                    <div class="hours-day">Saturday</div>
+                    <div class="hours-time">9:00 AM - 5:00 PM</div>
+                </div>
+                <div class="hours-row">
+                    <div class="hours-day">Sunday</div>
+                    <div class="hours-time">10:00 AM - 4:00 PM</div>
+                </div>
+                <div class="hours-row">
+                    <div class="hours-day">Public Holidays</div>
+                    <div class="hours-time">10:00 AM - 2:00 PM</div>
+                </div>
+            </div>
+            
+            <div class="emergency-box">
+                <h3><i class="fas fa-ambulance"></i> Emergency Services</h3>
+                <p>24/7 Emergency care available</p>
+                <div class="phone">0756 864 577</div>
+                <p>Immediate attention for urgent medical needs</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
     <section class="contact-section" id="contact">
         <div class="container">
             <div class="section-title">
                 <h2>Contact Us</h2>
+                <p style="color: var(--medium-gray); margin-top: 15px;">Get in touch or book an appointment</p>
             </div>
             
             <div class="contact-container">
                 <div class="contact-info">
-                    <h3>Get In Touch</h3>
-                    <p style="margin-bottom: 25px;">We're here to answer your questions and provide the care you need. Contact us by phone, email, or visit our clinic during business hours.</p>
+                    <h3>Contact Information</h3>
                     
                     <div class="contact-detail">
-                        <i class="fas fa-envelope"></i>
+                        <i class="fas fa-map-marker-alt"></i>
                         <div>
-                            <h4 style="color: var(--primary-blue); margin-bottom: 5px;">Email Address</h4>
-                            <p>mikeprougfuturedoctor@gmail.com</p>
+                            <h4 style="color: var(--primary-blue); margin-bottom: 5px;">Location</h4>
+                            <p>KKM People's Clinic</p>
+                            <p>Kyengera Town Council</p>
+                            <p>Near Central Market</p>
+                            <p>Opposite City Bank</p>
+                            <p>Wakiso District, Uganda</p>
                         </div>
                     </div>
                     
@@ -629,29 +1103,18 @@
                         <i class="fas fa-phone"></i>
                         <div>
                             <h4 style="color: var(--primary-blue); margin-bottom: 5px;">Phone Numbers</h4>
-                            <p>0756 864 577</p>
-                            <p>0785 876 685</p>
-                            <p>0770 381 121</p>
+                            <p>Appointments: 0756 864 577</p>
+                            <p>Emergency: 0785 876 685</p>
+                            <p>Laboratory: 0770 381 121</p>
                         </div>
                     </div>
                     
                     <div class="contact-detail">
-                        <i class="fas fa-clock"></i>
+                        <i class="fas fa-envelope"></i>
                         <div>
-                            <h4 style="color: var(--primary-blue); margin-bottom: 5px;">Clinic Hours</h4>
-                            <p>Monday - Friday: 8:00 AM - 8:00 PM</p>
-                            <p>Saturday: 9:00 AM - 5:00 PM</p>
-                            <p>Sunday: 10:00 AM - 4:00 PM</p>
-                            <p>Emergency services available 24/7</p>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-detail">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <div>
-                            <h4 style="color: var(--primary-blue); margin-bottom: 5px;">Location</h4>
-                            <p>KKM People's Clinic, Main Street, Community Health District</p>
-                            <p>Easy access with ample parking available</p>
+                            <h4 style="color: var(--primary-blue); margin-bottom: 5px;">Email Address</h4>
+                            <p>mikeprougfuturedoctor@gmail.com</p>
+                            <p>For appointments & inquiries</p>
                         </div>
                     </div>
                 </div>
@@ -670,18 +1133,28 @@
                     </div>
                     
                     <!-- Netlify Form -->
-                    <form name="appointment" method="POST" data-netlify="true" action="/success" netlify-honeypot="bot-field" id="appointmentForm">
+                    <form 
+                        name="appointment-request" 
+                        method="POST" 
+                        data-netlify="true" 
+                        data-netlify-honeypot="bot-field"
+                        id="appointmentForm">
+                        
                         <!-- Hidden Netlify Fields -->
-                        <input type="hidden" name="form-name" value="appointment">
-                        <input type="text" name="bot-field" style="display:none">
+                        <input type="hidden" name="form-name" value="appointment-request">
+                        <p style="display: none;">
+                            <label>Don't fill this out if you're human: <input name="bot-field"></label>
+                        </p>
                         
                         <!-- Form Fields -->
-                        <input type="text" name="name" placeholder="Your Full Name" required>
+                        <input type="text" name="full-name" placeholder="Your Full Name" required>
+                        
                         <input type="tel" name="phone" placeholder="Phone Number" required>
+                        
                         <input type="email" name="email" placeholder="Email Address" required>
                         
-                        <select name="service" required>
-                            <option value="" disabled selected>Select Service</option>
+                        <select name="service-required" required>
+                            <option value="" disabled selected>Select Service Required</option>
                             <option value="General Medicine">General Medicine</option>
                             <option value="Laboratory Services">Laboratory Services</option>
                             <option value="Minor Surgery">Minor Surgery</option>
@@ -691,26 +1164,79 @@
                             <option value="Paediatrics">Paediatrics</option>
                             <option value="Ultrasound Scan">Ultrasound Scan</option>
                             <option value="Pressure Check-up">Pressure Check-up</option>
+                            <option value="Emergency">Emergency Services</option>
+                            <option value="Other">Other Services</option>
                         </select>
                         
-                        <input type="date" name="preferred-date">
+                        <input type="date" name="preferred-date" required>
                         
-                        <select name="preferred-time">
-                            <option value="" disabled selected>Preferred Time</option>
+                        <select name="preferred-time" required>
+                            <option value="" disabled selected>Preferred Time Slot</option>
                             <option value="Morning (8 AM - 12 PM)">Morning (8 AM - 12 PM)</option>
                             <option value="Afternoon (12 PM - 4 PM)">Afternoon (12 PM - 4 PM)</option>
                             <option value="Evening (4 PM - 8 PM)">Evening (4 PM - 8 PM)</option>
+                            <option value="Emergency - Anytime">Emergency - Anytime</option>
                         </select>
                         
-                        <textarea name="message" placeholder="Additional Information or Questions" rows="5"></textarea>
+                        <textarea name="message" placeholder="Symptoms / Additional Information" rows="5"></textarea>
                         
-                        <button type="submit">Submit Appointment Request</button>
+                        <button type="submit">
+                            <i class="fas fa-paper-plane"></i> Submit Appointment Request
+                        </button>
                         
-                        <p style="font-size: 14px; color: var(--medium-gray); margin-top: 15px;">
+                        <p style="font-size: 14px; color: var(--medium-gray); margin-top: 15px; text-align: center;">
                             <i class="fas fa-lock" style="margin-right: 5px;"></i>
-                            Your information is secure and confidential
+                            Your information is secure and confidential. We'll contact you to confirm.
                         </p>
                     </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section with Google Maps -->
+    <section class="map-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Location</h2>
+                <p style="color: var(--medium-gray); margin-top: 15px;">Find us easily in Kyengera Town Council</p>
+            </div>
+            
+            <!-- Google Maps Embed -->
+            <div class="map-container">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127672.7438609564!2d32.31968986832015!3d0.2723502917849904!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x177da243f99bb25f%3A0xcbbf81663876ecda!2sKyengera%20Town%20Council!5e0!3m2!1sen!2sug!4v1765001653080!5m2!1sen!2sug" 
+                    width="100%" 
+                    height="450" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+            
+            <div class="location-details">
+                <div class="location-info">
+                    <h3><i class="fas fa-map-marker-alt" style="color: var(--primary-red); margin-right: 10px;"></i>Clinic Address</h3>
+                    <p><strong>KKM People's Clinic</strong></p>
+                    <p>Kyengera Town Council</p>
+                    <p>Near Central Market</p>
+                    <p>Opposite City Bank</p>
+                    <p>Wakiso District, Uganda</p>
+                </div>
+                
+                <div class="location-info">
+                    <h3><i class="fas fa-directions" style="color: var(--primary-red); margin-right: 10px;"></i>Getting Here</h3>
+                    <p><strong>By Public Transport:</strong> Matatu to Kyengera stage</p>
+                    <p><strong>By Car:</strong> Ample parking available</p>
+                    <p><strong>Landmark:</strong> Opposite City Bank, Near Central Market</p>
+                    <p style="margin-top: 15px;">
+                        <a href="https://maps.google.com/?q=KKM+People's+Clinic+Kyengera+Town+Council+Uganda" 
+                           target="_blank" 
+                           style="color: var(--primary-red); font-weight: 600; text-decoration: none;">
+                            <i class="fas fa-external-link-alt"></i> Open in Google Maps
+                        </a>
+                    </p>
                 </div>
             </div>
         </div>
@@ -722,33 +1248,34 @@
             <div class="footer-container">
                 <div class="footer-column">
                     <h3>KKM People's Clinic</h3>
-                    <p>Your health is our priority. We provide comprehensive medical services with compassion, expertise, and state-of-the-art facilities.</p>
-                    <div style="margin-top: 20px;">
-                        <a href="#" style="color: #ccc; margin-right: 15px; font-size: 1.2rem;"><i class="fab fa-facebook"></i></a>
-                        <a href="#" style="color: #ccc; margin-right: 15px; font-size: 1.2rem;"><i class="fab fa-twitter"></i></a>
-                        <a href="#" style="color: #ccc; margin-right: 15px; font-size: 1.2rem;"><i class="fab fa-instagram"></i></a>
+                    <p>Your trusted healthcare partner providing comprehensive medical services with compassion, expertise, and state-of-the-art facilities since 2010.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
                     </div>
                 </div>
                 
                 <div class="footer-column">
                     <h3>Quick Links</h3>
                     <ul>
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#services">Services</a></li>
-                        <li><a href="#about">About Us</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                        <li><a href="#contact">Book Appointment</a></li>
+                        <li><a href="#home"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="#services"><i class="fas fa-chevron-right"></i> Our Services</a></li>
+                        <li><a href="#doctors"><i class="fas fa-chevron-right"></i> Our Doctors</a></li>
+                        <li><a href="#hours"><i class="fas fa-chevron-right"></i> Clinic Hours</a></li>
+                        <li><a href="#contact"><i class="fas fa-chevron-right"></i> Contact Us</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-column">
-                    <h3>Our Services</h3>
+                    <h3>Medical Services</h3>
                     <ul>
-                        <li><a href="#services">General Medicine</a></li>
-                        <li><a href="#services">Laboratory Services</a></li>
-                        <li><a href="#services">Minor Surgery</a></li>
-                        <li><a href="#services">Antenatal Care</a></li>
-                        <li><a href="#services">Dental Care</a></li>
+                        <li><a href="#services"><i class="fas fa-stethoscope"></i> General Medicine</a></li>
+                        <li><a href="#services"><i class="fas fa-microscope"></i> Laboratory</a></li>
+                        <li><a href="#services"><i class="fas fa-baby"></i> Maternity Care</a></li>
+                        <li><a href="#services"><i class="fas fa-tooth"></i> Dental Care</a></li>
+                        <li><a href="#services"><i class="fas fa-heartbeat"></i> Cardiac Care</a></li>
                     </ul>
                 </div>
                 
@@ -758,13 +1285,15 @@
                         <li><i class="fas fa-phone" style="margin-right: 8px;"></i> 0756 864 577</li>
                         <li><i class="fas fa-phone" style="margin-right: 8px;"></i> 0785 876 685</li>
                         <li><i class="fas fa-phone" style="margin-right: 8px;"></i> 0770 381 121</li>
-                        <li><i class="fas fa-ambulance" style="margin-right: 8px;"></i> Emergency: 911</li>
+                        <li><i class="fas fa-ambulance" style="margin-right: 8px;"></i> Ambulance: 911</li>
+                        <li><i class="fas fa-envelope" style="margin-right: 8px;"></i> mikeprougfuturedoctor@gmail.com</li>
                     </ul>
                 </div>
             </div>
             
             <div class="copyright">
-                <p>&copy; 2023 KKM People's Clinic. All Rights Reserved. | Providing Quality Healthcare to Our Community</p>
+                <p>&copy; 2023 KKM People's Clinic. All Rights Reserved. | Providing Quality Healthcare to Our Community Since 2010</p>
+                <p style="margin-top: 10px;">Designed with <i class="fas fa-heart" style="color: var(--primary-red);"></i> for better healthcare</p>
             </div>
         </div>
     </footer>
@@ -779,15 +1308,65 @@
         });
         
         // Handle form submission
-        document.getElementById('appointmentForm').addEventListener('submit', function(e) {
-            // Optional: Show loading state
+        document.getElementById('appointmentForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            // Show loading state
             const submitBtn = this.querySelector('button[type="submit"]');
-            const originalText = submitBtn.textContent;
-            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending Request...';
             submitBtn.disabled = true;
             
-            // The form will submit to Netlify
-            // Netlify will handle the submission and redirect to /success
+            // Hide any previous messages
+            document.getElementById('formSuccess').style.display = 'none';
+            document.getElementById('formError').style.display = 'none';
+            
+            try {
+                // Submit the form data
+                const formData = new FormData(this);
+                formData.append('form-name', 'appointment-request');
+                
+                const response = await fetch('/', {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+                
+                if (response.ok) {
+                    // Show success message
+                    document.getElementById('formSuccess').style.display = 'block';
+                    
+                    // Scroll to success message
+                    document.getElementById('formSuccess').scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    
+                    // Reset form
+                    this.reset();
+                    
+                    // Reset button
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                    
+                    // Hide success message after 10 seconds
+                    setTimeout(() => {
+                        document.getElementById('formSuccess').style.display = 'none';
+                    }, 10000);
+                } else {
+                    throw new Error('Form submission failed');
+                }
+                
+            } catch (error) {
+                // Show error message
+                document.getElementById('formError').style.display = 'block';
+                document.getElementById('formError').scrollIntoView({ behavior: 'smooth', block: 'center' });
+                
+                // Reset button
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+                
+                console.error('Form submission error:', error);
+            }
         });
         
         // Smooth scrolling for anchor links
@@ -801,7 +1380,7 @@
                 const targetElement = document.querySelector(targetId);
                 if(targetElement) {
                     window.scrollTo({
-                        top: targetElement.offsetTop - 80,
+                        top: targetElement.offsetTop - 100,
                         behavior: 'smooth'
                     });
                     
@@ -812,16 +1391,12 @@
             });
         });
         
-        // Check if we're on a success page
-        if(window.location.pathname === '/success' || window.location.search.includes('success')) {
-            // Show success message
-            document.getElementById('formSuccess').style.display = 'block';
-            
-            // Remove success parameter from URL
-            if(window.history.replaceState) {
-                window.history.replaceState({}, document.title, window.location.pathname);
-            }
-        }
+        // Set minimum date for appointment to today
+        const today = new Date().toISOString().split('T')[0];
+        document.querySelector('input[type="date"]').min = today;
+        
+        // Update year in copyright
+        document.querySelector('.copyright p').innerHTML = document.querySelector('.copyright p').innerHTML.replace('2023', new Date().getFullYear());
     </script>
 </body>
 </html>
